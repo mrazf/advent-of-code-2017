@@ -1,10 +1,10 @@
 const configurations = {}
 
 const recurse = (memoryBanks, cycles) => {
-  if (configurations[memoryBanks]) {
-    return cycles
+  if (configurations[memoryBanks] !== undefined && configurations[memoryBanks].length === 2) {
+    return configurations[memoryBanks]
   } else {
-    configurations[memoryBanks] = true
+    configurations[memoryBanks] === undefined ? configurations[memoryBanks] = [] : configurations[memoryBanks].push(cycles)
   }
 
   const largestNoOfBlocks = Math.max.apply(Math, memoryBanks)
